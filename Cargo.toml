@@ -3,6 +3,13 @@ name = "axum-template"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "app"
+path = "src/bin/app.rs"
+
+[workspace]
+members = ["interfaces"]
+
 [dependencies]
 anyhow = "1.0.91"
 axum = { version = "0.7.7", features = ["macros"] }
