@@ -10,7 +10,14 @@ path = "src/bin/app.rs"
 [workspace]
 members = ["interfaces"]
 
-[dependencies]
+[workspace.dependencies]
+interfaces ={ path = "./interfaces" }
 anyhow = "1.0.91"
 axum = { version = "0.7.7", features = ["macros"] }
 tokio = { version = "1.41.0", features = ["full"] }
+
+[dependencies]
+interfaces.workspace = true
+anyhow.workspace = true
+axum.workspace = true
+tokio.workspace = true
