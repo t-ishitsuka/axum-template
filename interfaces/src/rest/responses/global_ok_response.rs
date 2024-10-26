@@ -1,6 +1,6 @@
-use serde::Deserialize;
+use serde::Serialize;
 
-#[derive(Deserialize)]
+#[derive(Debug, Serialize)]
 pub struct GlobalOkResponse {
     message: String,
 }

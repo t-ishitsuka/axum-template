@@ -2,6 +2,9 @@ use axum::{routing::get, Router};
 
 use crate::rest::controllers::v1::health_check_controller::health_check;
 
+///
+/// アプリケーションヘルスチェック
+///
 pub fn build_health_check_router() -> Router {
     let router = Router::new().route("/", get(health_check));
 

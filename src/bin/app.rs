@@ -4,17 +4,17 @@ use anyhow::{Error, Result};
 
 use interfaces::build_router;
 
-/**
- * Main
- */
+///
+/// Main, Entrypoint
+///
 #[tokio::main]
 async fn main() -> Result<()> {
     bootstrap().await
 }
 
-/**
- * Start application server
- */
+///
+/// アプリケーションサーバーの起動
+///
 async fn bootstrap() -> Result<()> {
     let app = build_router();
 
