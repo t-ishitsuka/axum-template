@@ -8,17 +8,21 @@ name = "app"
 path = "src/bin/app.rs"
 
 [workspace]
-members = ["interfaces"]
+members = ["interfaces", "shares"]
 
 [workspace.dependencies]
 interfaces ={ path = "./interfaces" }
+shares ={ path = "./shares" }
 anyhow = "1.0.91"
 axum = { version = "0.7.7", features = ["macros"] }
+dotenvy = "0.15.7"
 tokio = { version = "1.41.0", features = ["full"] }
 serde = { version = "1.0.213", features = ["derive"]}
 
 [dependencies]
 interfaces.workspace = true
+shares.workspace = true
 anyhow.workspace = true
 axum.workspace = true
+dotenvy.workspace = true
 tokio.workspace = true

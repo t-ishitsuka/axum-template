@@ -3,6 +3,7 @@ use std::net::{Ipv4Addr, SocketAddr};
 use anyhow::{Error, Result};
 
 use interfaces::build_router;
+use shares::config::config;
 
 ///
 /// Main, Entrypoint
@@ -18,7 +19,7 @@ async fn main() -> Result<()> {
 async fn bootstrap() -> Result<()> {
     let app = build_router();
 
-    let addr = SocketAddr::new(Ipv4Addr::LOCALHOST.into(), 8000);
+    let addr = SocketAddr::new(Ipv4Addr::LOCALHOST.into(), config("app.port").into());
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
 
     println!("Server listening on the {}", addr);
