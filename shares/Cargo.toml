@@ -5,3 +5,7 @@ edition = "2021"
 
 [dependencies]
 dotenvy.workspace = true
+
+[dev-dependencies]
+anyhow.workspace = true
+rstest.workspace = true

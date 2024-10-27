@@ -16,8 +16,9 @@ shares ={ path = "./shares" }
 anyhow = "1.0.91"
 axum = { version = "0.7.7", features = ["macros"] }
 dotenvy = "0.15.7"
-tokio = { version = "1.41.0", features = ["full"] }
+rstest = "0.23.0"
 serde = { version = "1.0.213", features = ["derive"]}
+tokio = { version = "1.41.0", features = ["full"] }
 
 [dependencies]
 interfaces.workspace = true

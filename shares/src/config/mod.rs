@@ -23,7 +23,9 @@ pub fn config(key: &str) -> Config {
 /// 環境変数の読み込み先を調整
 ///
 pub fn load_env() {
-    if cfg!(test) {
+    println!("{}", cfg!(test));
+
+    if cfg!(test) || std::env::var("TEST_MODE").is_ok() {
         from_filename("./shares/env/.env.testing").expect(".env.testing file not found.");
     } else if cfg!(debug_assertions) {
         from_filename("./shares/env/.env").expect(".env file not found.");
