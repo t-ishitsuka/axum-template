@@ -3,13 +3,14 @@ use std::net::{Ipv4Addr, SocketAddr};
 use anyhow::{Error, Result};
 
 use interfaces::build_router;
-use shares::config::config;
+use shares::config::{config, load_env};
 
 ///
 /// Main, Entrypoint
 ///
 #[tokio::main]
 async fn main() -> Result<()> {
+    load_env();
     bootstrap().await
 }
 

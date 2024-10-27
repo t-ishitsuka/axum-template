@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+shares.workspace = true
 axum.workspace = true
 serde.workspace = true
 utoipa.workspace = true

@@ -8,13 +8,17 @@ use app::AppConfig;
 /// 各種設定を取得する
 ///
 pub fn config(key: &str) -> Config {
-    load_env();
-
     let app = AppConfig::default();
 
     match key {
         "app" => Config::AppConfig(app),
+        "app.env" => Config::String(app.env),
         "app.port" => Config::U16(app.port),
+        "app.is_local" => Config::Bool(app.is_local),
+        "app.is_development" => Config::Bool(app.is_development),
+        "app.is_staging" => Config::Bool(app.is_staging),
+        "app.is_production" => Config::Bool(app.is_production),
+        "app.is_testing" => Config::Bool(app.is_testing),
         _ => panic!("test"),
     }
 }
@@ -23,8 +27,6 @@ pub fn config(key: &str) -> Config {
 /// 環境変数の読み込み先を調整
 ///
 pub fn load_env() {
-    println!("{}", cfg!(test));
-
     if cfg!(test) || std::env::var("TEST_MODE").is_ok() {
         from_filename("./shares/env/.env.testing").expect(".env.testing file not found.");
     } else if cfg!(debug_assertions) {
@@ -41,10 +43,36 @@ pub fn load_env() {
 pub enum Config {
     // TODO 各種必要な型に合わせて追加実装
     AppConfig(AppConfig),
+    String(String),
     U16(u16),
+    Bool(bool),
 }
 
 // TODO 各種必要な型に合わせて追加実装
+
+///
+/// AppConfig への変換
+///
+impl From<Config> for AppConfig {
+    fn from(config: Config) -> Self {
+        match config {
+            Config::AppConfig(value) => value,
+            _ => panic!("aaa"),
+        }
+    }
+}
+
+///
+/// String への変換
+///
+impl From<Config> for String {
+    fn from(config: Config) -> Self {
+        match config {
+            Config::String(value) => value,
+            _ => panic!("aaa"),
+        }
+    }
+}
 
 ///
 /// u16 への変換
@@ -53,6 +81,18 @@ impl From<Config> for u16 {
     fn from(config: Config) -> Self {
         match config {
             Config::U16(value) => value,
+            _ => panic!("aaa"),
+        }
+    }
+}
+
+///
+/// Bool への変換
+///
+impl From<Config> for bool {
+    fn from(config: Config) -> Self {
+        match config {
+            Config::Bool(value) => value,
             _ => panic!("aaa"),
         }
     }
