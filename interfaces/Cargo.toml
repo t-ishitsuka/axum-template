@@ -6,3 +6,5 @@ edition = "2021"
 [dependencies]
 axum.workspace = true
 serde.workspace = true
+utoipa.workspace = true
+utoipa-redoc.workspace = true
