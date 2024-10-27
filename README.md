@@ -13,7 +13,7 @@ https://qiita.com/tono-maron/items/345c433b86f74d314c8d
 [x] nested routing
 [x] config, load env
 [x] testing env
-[] test
+[x] test
 [] swagger gen
 [] add usecase
 [] dependency injection
