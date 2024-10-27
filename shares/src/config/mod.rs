@@ -1,6 +1,6 @@
 pub mod app;
 
-use dotenvy::dotenv;
+use dotenvy::from_filename;
 
 use app::AppConfig;
 
@@ -8,7 +8,7 @@ use app::AppConfig;
 /// 各種設定を取得する
 ///
 pub fn config(key: &str) -> Config {
-    dotenv().expect(".env file not fount.");
+    load_env();
 
     let app = AppConfig::default();
 
@@ -16,6 +16,19 @@ pub fn config(key: &str) -> Config {
         "app" => Config::AppConfig(app),
         "app.port" => Config::U16(app.port),
         _ => panic!("test"),
+    }
+}
+
+///
+/// 環境変数の読み込み先を調整
+///
+pub fn load_env() {
+    if cfg!(test) {
+        from_filename("./shares/env/.env.testing").expect(".env.testing file not found.");
+    } else if cfg!(debug_assertions) {
+        from_filename("./shares/env/.env").expect(".env file not found.");
+    } else {
+        // 本番環境ではサーバー環境変数を読む
     }
 }
 
