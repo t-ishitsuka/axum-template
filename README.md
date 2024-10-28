@@ -39,10 +39,11 @@ project-root/
 -   [] swagger gen
     -   [x] health check path
     -   [x] response
-    -   [] tags
+    -   [x] tags
     -   [] request
     -   [] path params
     -   [] query params
+    -   [] json or yaml の書き出し
 -   [] add usecase
 -   [] add rust docker
 -   [] add postgresql docker

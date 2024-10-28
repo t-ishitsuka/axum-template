@@ -12,7 +12,8 @@ use crate::rest::responses::global_ok_response::GlobalOkResponse;
         path = "/api/v1/health-check",
         responses(
             (status = StatusCode::OK, description = "アプリケーションは健全", body = GlobalOkResponse)
-        )
+        ),
+        tag = "health-check"
     )
 )]
 pub async fn health_check() -> impl IntoResponse {

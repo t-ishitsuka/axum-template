@@ -15,6 +15,9 @@ Axum を用いたWeb アプリケーション BackEnd の構築。
 "#
     ),
     paths(controllers::v1::health_check_controller::health_check),
-    components(schemas(responses::global_ok_response::GlobalOkResponse))
+    components(schemas(responses::global_ok_response::GlobalOkResponse)),
+    tags(
+        (name = "health-check", description = "アプリケーションヘルスチェック")
+    )
 )]
 pub struct ApiDoc;
