@@ -28,8 +28,10 @@ pub fn config(key: &str) -> Config {
 ///
 pub fn load_env() {
     if cfg!(test) || std::env::var("TEST_MODE").is_ok() {
+        // テスト
         from_filename("./shares/env/.env.testing").expect(".env.testing file not found.");
     } else if cfg!(debug_assertions) {
+        // ローカル、dev, stg
         from_filename("./shares/env/.env").expect(".env file not found.");
     } else {
         // 本番環境ではサーバー環境変数を読む

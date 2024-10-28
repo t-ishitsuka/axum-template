@@ -1,7 +1,7 @@
 use axum::Router;
 use openapi::ApiDoc;
 use rest::routes::build_rest_router;
-use shares::config::{config, Config};
+use shares::config::config;
 use utoipa::OpenApi;
 use utoipa_redoc::{Redoc, Servable};
 

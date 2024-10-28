@@ -3,7 +3,7 @@ use serde::Serialize;
 ///
 /// 全アプリケーション共通で成功したというレスポンスを返す時のレスポンス
 ///
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, utoipa::ToSchema)]
 pub struct GlobalOkResponse {
     message: String,
 }

@@ -1,60 +1,62 @@
 # axum-template
 
-interfaces
-usecase
-domain
-infrastructure
+### ディレクトリ構成
 
-https://qiita.com/tono-maron/items/345c433b86f74d314c8d
+```
+project-root/
+  ├ src/bin/app.rs
+  ├ shares/
+  ├   ├ env/
+  │   ├ src/
+  │   │   └ config/
+  │   └ tests/
+  ├ interfaces/
+  │   └ src/
+  │       └ rest/
+  │           ├ controllers
+  │           │   └ v1
+  │           ├ requests
+  │           ├ responses
+  │           ├ routes
+  │           │   └ v1
+  │           └ schemas
+  ├ usecases/
+  ├ domains/
+  └ infrastructures/
+```
 
-[x] hello world
+[ディレクトリ構成参考](https://qiita.com/tono-maron/items/345c433b86f74d314c8d)
 
-[x] health check
+### 進捗
 
-[x] nested routing
-
-[x] config, load env
-
-[x] testing env
-
-[x] test
-
-[x] app env config
-
-[] swagger gen
-
-[] add usecase
-
-[] dependency injection
-
-[] add test authed user endpoint
-
-[] test
-
-[] add rust docker
-
-[] add postgresql docker
-
-[] create database
-
-[] add redis docker
-
-[] add ORM
-
-[] migration (users)
-
-[] update authed user endpoint (no jwt)
-
-[] test
-
-[] add jwt crait
-
-[] add login
-
-[] test
-
-[] update authed user endpoint (with jwt)
-
-[] test, testing env
-
-[]
+-   [x] hello world
+-   [x] health check
+-   [x] nested routing
+-   [x] config, load env, load .env
+-   [x] .env.testing
+-   [x] app env config
+-   [x] test1: config
+-   [] swagger gen
+    -   [x] health check path
+    -   [x] response
+    -   [] tags
+    -   [] request
+    -   [] path params
+    -   [] query params
+-   [] add usecase
+-   [] add rust docker
+-   [] add postgresql docker
+-   [] create database
+-   [] add redis docker
+-   [] Makefile
+-   [] dependency injection
+-   [] add test authed user endpoint
+-   [] test
+-   [] add ORM
+-   [] migration (users)
+-   [] update authed user endpoint (no jwt)
+-   [] test
+-   [] add jwt crait
+-   [] add login
+-   [] test
+-   [] update authed user endpoint (with jwt)
