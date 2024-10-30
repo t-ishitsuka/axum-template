@@ -44,12 +44,13 @@ project-root/
     -   [] path params
     -   [] query params
     -   [] json or yaml の書き出し
--   [] add usecase
+-   [] test カバレッジの取得
 -   [] add rust docker
 -   [] add postgresql docker
 -   [] create database
 -   [] add redis docker
 -   [] Makefile
+-   [] add usecase layer
 -   [] dependency injection
 -   [] add test authed user endpoint
 -   [] test

@@ -1,7 +1,7 @@
 use axum::Router;
 use openapi::ApiDoc;
 use rest::routes::build_rest_router;
-use shares::config::config;
+use shares::{config::config, error::error_404};
 use utoipa::OpenApi;
 use utoipa_redoc::{Redoc, Servable};
 
@@ -20,6 +20,8 @@ pub fn build_router() -> Router {
     if !is_production && !is_testing {
         router = router.merge(Redoc::with_url("/openapi", ApiDoc::openapi()));
     }
+
+    let router = router.fallback(error_404::handle_404);
 
     return router;
 }
