@@ -14,4 +14,4 @@ ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
 ENV LC_ALL ja_JP.UTF-8
 
-# COPY ./docker/local/pgsql/create-testing-database.sql /docker-entrypoint-initdb.d/10-create-testing-database.sql
+COPY ./docker/local/postgresql/create-testing-database.sql /docker-entrypoint-initdb.d/10-create-testing-database.sql

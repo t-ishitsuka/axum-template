@@ -42,6 +42,13 @@ down:		## Docker コンテナの削除
 # Shell
 #
 ############################################################
+.PHONY: pg
+pg: 			## PostgreSQL Server接続
+	docker compose exec axum-template-pgsql bash -c 'psql -U user local'
+
+.PHONY: redis
+redis: 			## Redis Server接続
+	docker compose exec axum-template-redis sh -c 'redis-cli'
 
 ############################################################
 #

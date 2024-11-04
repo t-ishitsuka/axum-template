@@ -21,7 +21,7 @@ services:
       timeout: 5s
 
   axum-template-redis:
-    container_name: axum-template
+    container_name: axum-template-redis
     build:
       context: .
       dockerfile: ./docker/local/redis/Dockerfile
