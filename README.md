@@ -45,7 +45,7 @@ project-root/
     -   [] query params
     -   [] json or yaml の書き出し
 -   [] add rust docker
--   [] add postgresql docker
+-   [x] add postgresql docker
 -   [] create database
 -   [x] add redis docker
 -   [] Makefile

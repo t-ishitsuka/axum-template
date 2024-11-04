@@ -1,4 +1,25 @@
 services:
+  axum-template-pgsql:
+    container_name: axum-template-pgsql
+    build:
+      context: .
+      dockerfile: ./docker/local/postgresql/Dockerfile
+    ports:
+      - 5432:5432
+    environment:
+      PGPASSWORD: password
+      POSTGRES_DB: local
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./docker/local/postgresql/postgresql-data:/var/lib/postgresql/data
+    networks:
+      - axum-template-network
+    healthcheck:
+      test: ["CMD", "g_isready", "p", "-q", "-d", "local", "-U", "user"]
+      retries: 3
+      timeout: 5s
+
   axum-template-redis:
     container_name: axum-template
     build:
@@ -8,7 +29,14 @@ services:
       - 6379:6379
     volumes:
       - ./docker/local/redis/redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      retries: 3
+      timeout: 5s
+    networks:
+      - axum-template-network
 
 networks:
   axum-template-network:
+    name: axum-template-network
     external: true

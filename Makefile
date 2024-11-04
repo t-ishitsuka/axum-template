@@ -6,11 +6,20 @@ help:			## Makeコマンドの表示
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 	@echo ""
 
+############################################################
+#
+# Docker
+#
+############################################################
 .PHONY: init
 init:		## Docker コンテナ初期化
 	@make network
-# @make build
-# @make up
+	@make build
+	@make up
+
+.PHONY: network
+network:	## Docker ネットワークの作成
+	docker network create axum-template-network
 
 .PHONY: build
 build:		## Docker コンテナのビルド
@@ -20,10 +29,25 @@ build:		## Docker コンテナのビルド
 up:			## Docker コンテナの開始
 	docker compose up -d
 
-.PHONY: network
-network:	## Docker ネットワークの作成
-	docker network create axum-template-network
+.PHONY: stop
+stop:		## Docker コンテナの停止
+	docker compose stop
 
+.PHONY: down
+down:		## Docker コンテナの削除
+	docker compose down --remove-orphans
+
+############################################################
+#
+# Shell
+#
+############################################################
+
+############################################################
+#
+# Util
+#
+############################################################
 .PHONY: test
 test:			## テスト実行
 	TEST_MODE=1 cargo nextest run --workspace --status-level all --test-threads=1
