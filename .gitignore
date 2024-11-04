@@ -1,3 +1,5 @@
 /target
 
+/docker/local/redis/redis-data
+
 /shares/env/.env

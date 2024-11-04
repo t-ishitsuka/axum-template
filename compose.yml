@@ -1,0 +1,14 @@
+services:
+  axum-template-redis:
+    container_name: axum-template
+    build:
+      context: .
+      dockerfile: ./docker/local/redis/Dockerfile
+    ports:
+      - 6379:6379
+    volumes:
+      - ./docker/local/redis/redis-data:/data
+
+networks:
+  axum-template-network:
+    external: true
