@@ -1,6 +1,3 @@
 /target
 
-/docker/local/redis/redis-data
-/docker/local/postgresql/postgresql-data
-
 /shares/env/.env

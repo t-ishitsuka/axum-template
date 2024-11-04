@@ -20,7 +20,7 @@ async fn main() -> Result<()> {
 async fn bootstrap() -> Result<()> {
     let app = build_router();
 
-    let addr = SocketAddr::new(Ipv4Addr::LOCALHOST.into(), config("app.port").into());
+    let addr = SocketAddr::new(Ipv4Addr::UNSPECIFIED.into(), config("app.port").into());
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
 
     println!("Server listening on the {}", addr);

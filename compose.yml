@@ -1,4 +1,16 @@
 services:
+  axum-template-backend:
+    container_name: axum-template-backend
+    build:
+      context: .
+      dockerfile: ./docker/local/rust/Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/usr/src/backend
+    networks:
+      - axum-template-network
+
   axum-template-pgsql:
     container_name: axum-template-pgsql
     build:
@@ -12,7 +24,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     volumes:
-      - ./docker/local/postgresql/postgresql-data:/var/lib/postgresql/data
+      - axum-template-pgsql:/var/lib/postgresql/data
     networks:
       - axum-template-network
     healthcheck:
@@ -28,7 +40,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ./docker/local/redis/redis-data:/data
+      - axum-template-redis:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       retries: 3
@@ -40,3 +52,11 @@ networks:
   axum-template-network:
     name: axum-template-network
     external: true
+
+volumes:
+  axum-template-pgsql:
+    driver: local
+  axum-template-redis:
+    driver: local
+  axum-template-minio:
+    driver: local
