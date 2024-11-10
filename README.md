@@ -45,7 +45,7 @@ project-root/
     -   [] query params
     -   [] json or yaml の書き出し
 -   [x] add rust docker
--   [] rust docker の cargo watch が遅いのを修正したい
+-   [x] rust docker の cargo watch が遅いのを修正したい
 -   [x] add postgresql docker
 -   [x] create database
 -   [x] add redis docker

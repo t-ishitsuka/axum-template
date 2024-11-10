@@ -8,6 +8,7 @@ services:
       - 8000:8000
     volumes:
       - .:/usr/src/backend
+      - axum-template-compile-target:/usr/src/backend/target
     networks:
       - axum-template-network
 
@@ -54,6 +55,8 @@ networks:
     external: true
 
 volumes:
+  axum-template-compile-target:
+    driver: local
   axum-template-pgsql:
     driver: local
   axum-template-redis:

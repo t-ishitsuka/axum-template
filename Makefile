@@ -57,4 +57,4 @@ redis: 			## Redis Server接続
 ############################################################
 .PHONY: test
 test:			## テスト実行
-	TEST_MODE=1 cargo nextest run --workspace --status-level all --test-threads=1
+	docker compose exec axum-template-backend bash -c 'TEST_MODE=1 cargo nextest run --workspace --status-level all --test-threads=1'

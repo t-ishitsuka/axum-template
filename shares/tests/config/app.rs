@@ -10,7 +10,7 @@ mod tests {
 
         let app = AppConfig::default();
 
-        assert_eq!(8081, app.port);
+        assert_eq!(8001, app.port);
         Ok(())
     }
 }
