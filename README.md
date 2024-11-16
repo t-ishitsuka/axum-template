@@ -49,7 +49,7 @@ project-root/
 -   [x] add postgresql docker
 -   [x] create database
 -   [x] add redis docker
--   [] Makefile
+-   [x] Makefile
 -   [] add usecase layer
 -   [] dependency injection
 -   [] add test authed user endpoint

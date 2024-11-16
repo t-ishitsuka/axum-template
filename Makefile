@@ -42,6 +42,10 @@ down:		## Docker コンテナの削除
 # Shell
 #
 ############################################################
+.PHONY: bash
+bash: 			## Rust Server接続
+	docker compose exec axum-template-backend bash
+
 .PHONY: pg
 pg: 			## PostgreSQL Server接続
 	docker compose exec axum-template-pgsql bash -c 'psql -U user local'
