@@ -4,3 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+interfaces.workspace = true
+shaku.workspace = true
+usecases.workspace = true

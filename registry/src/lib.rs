@@ -1,14 +1,25 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+use std::sync::Arc;
+
+use shaku::module;
+use usecases::user_usecase::UserUsecaseImpl;
+
+module! {
+    pub UserModule {
+        components = [UserUsecaseImpl],
+        providers = []
+    }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub struct AppRegistry {
+    pub user_module: Arc<UserModule>,
+}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+impl AppRegistry {
+    pub fn new() -> Self {
+        let user_module = Arc::new(UserModule::builder().build());
+
+        Self {
+            user_module: user_module,
+        }
     }
 }

@@ -3,6 +3,7 @@ use std::net::{Ipv4Addr, SocketAddr};
 use anyhow::{Error, Result};
 
 use interfaces::build_router;
+use registry::AppRegistry;
 use shares::config::{config, load_env};
 
 ///
@@ -18,6 +19,7 @@ async fn main() -> Result<()> {
 /// アプリケーションサーバーの起動
 ///
 async fn bootstrap() -> Result<()> {
+    let app_registry = AppRegistry::new();
     let app = build_router();
 
     let addr = SocketAddr::new(Ipv4Addr::UNSPECIFIED.into(), config("app.port").into());
