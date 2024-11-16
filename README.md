@@ -51,6 +51,7 @@ project-root/
 -   [x] add redis docker
 -   [x] Makefile
 -   [x] add usecase layer
+-   [x] add registry layer
 -   [] dependency injection
 -   [] add test authed user endpoint
 -   [] test
