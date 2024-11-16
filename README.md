@@ -50,7 +50,7 @@ project-root/
 -   [x] create database
 -   [x] add redis docker
 -   [x] Makefile
--   [] add usecase layer
+-   [x] add usecase layer
 -   [] dependency injection
 -   [] add test authed user endpoint
 -   [] test

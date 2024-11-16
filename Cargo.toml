@@ -8,16 +8,17 @@ name = "app"
 path = "src/bin/app.rs"
 
 [workspace]
-members = ["interfaces", "shares"]
+members = ["interfaces", "shares", "usecases"]
 
 [workspace.dependencies]
-interfaces ={ path = "./interfaces" }
-shares ={ path = "./shares" }
+interfaces = { path = "./interfaces" }
+shares = { path = "./shares" }
+usecases = { path = "./usecases" }
 anyhow = "1.0.91"
 axum = { version = "0.7.7", features = ["macros"] }
 dotenvy = "0.15.7"
 rstest = "0.23.0"
-serde = { version = "1.0.213", features = ["derive"]}
+serde = { version = "1.0.213", features = ["derive"] }
 thiserror = "1.0.65"
 tokio = { version = "1.41.0", features = ["full"] }
 utoipa = { version = "5.1.2", features = ["axum_extras", "chrono", "ulid", "uuid"] }
