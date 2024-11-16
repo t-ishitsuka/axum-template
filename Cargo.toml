@@ -34,3 +34,5 @@ interfaces.workspace = true
 registry.workspace = true
 shares.workspace = true
 tokio.workspace = true
+utoipa.workspace = true
+utoipa-redoc.workspace = true

@@ -52,8 +52,8 @@ project-root/
 -   [x] Makefile
 -   [x] add usecase layer
 -   [x] add registry layer
--   [] dependency injection
--   [] add test authed user endpoint
+-   [x] dependency injection1
+-   [x] add test authed user endpoint
 -   [] test
 -   [] add ORM
 -   [] migration (users)

@@ -4,9 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-shares.workspace = true
 axum.workspace = true
 serde.workspace = true
-shaku.workspace = true
+shaku_axum.workspace = true
+usecases.workspace = true
 utoipa.workspace = true
-utoipa-redoc.workspace = true
+registry.workspace = true
