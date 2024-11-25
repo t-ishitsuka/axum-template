@@ -434,6 +434,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "infrastructures"
+version = "0.1.0"
+dependencies = [
+ "domains",
+ "shaku",
+]
+
+[[package]]
 name = "interfaces"
 version = "0.1.0"
 dependencies = [
@@ -647,6 +655,7 @@ name = "registry"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "infrastructures",
  "shaku",
  "usecases",
 ]
@@ -1026,6 +1035,7 @@ checksum = "e91b56cd4cadaeb79bbf1a5645f6b4f8dc5bde8834ad5894a8db35fda9efa1fe"
 name = "usecases"
 version = "0.1.0"
 dependencies = [
+ "domains",
  "shaku",
 ]
 

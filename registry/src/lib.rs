@@ -1,13 +1,14 @@
 use std::sync::Arc;
 
 use axum::extract::FromRef;
+use infrastructures::persistences::user::UserPersistence;
 use shaku::module;
 use usecases::user_usecase::UserUsecaseImpl;
 
 module! {
     pub UserModule {
-        components = [UserUsecaseImpl],
-        providers = []
+        components = [],
+        providers = [UserUsecaseImpl, UserPersistence]
     }
 }
 

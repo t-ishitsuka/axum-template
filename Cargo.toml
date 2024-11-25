@@ -8,9 +8,11 @@ name = "app"
 path = "src/bin/app.rs"
 
 [workspace]
-members = [ "domains","interfaces", "registry", "shares", "usecases"]
+members = [ "domains", "infrastructures", "interfaces", "registry", "shares", "usecases" ]
 
 [workspace.dependencies]
+domains = { path = "./domains" }
+infrastructures = { path = "./infrastructures" }
 interfaces = { path = "./interfaces" }
 registry = { path = "./registry" }
 shares = { path = "./shares" }

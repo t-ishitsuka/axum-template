@@ -1,8 +1,12 @@
-use shaku::{Component, Interface};
+use domains::repositories::user_repository::UserRepository;
+use shaku::{Interface, Provider};
 
-#[derive(Component)]
+#[derive(Provider)]
 #[shaku(interface = UserUsecase)]
-pub struct UserUsecaseImpl;
+pub struct UserUsecaseImpl {
+    #[shaku(provide)]
+    user_persistence: Box<dyn UserRepository>,
+}
 
 pub trait UserUsecase: Interface {
     fn find_by_id(&self) -> String;
@@ -10,6 +14,6 @@ pub trait UserUsecase: Interface {
 
 impl UserUsecase for UserUsecaseImpl {
     fn find_by_id(&self) -> String {
-        "find_by_id".to_string()
+        self.user_persistence.find_by_id()
     }
 }
